@@ -1,0 +1,38 @@
+{
+  "name": "demo-e2e-testing-with-playwright-cucumber",
+  "version": "1.0.0",
+  "description": "Demo project for end-to-end testing with Playwright and Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test:cli": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:bdd": "cucumber-js test --format @cucumber/pretty-formatter --format html:cucumber-report/report.html --format summary",
+    "report:open": "playwright show-report"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paul-chiggy/demo-e2e-testing-with-playwright-cucumber.git"
+  },
+  "keywords": [
+    "Playwright",
+    "Cucumber",
+    "BDD"
+  ],
+  "author": "Pavlo Chigishev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paul-chiggy/demo-e2e-testing-with-playwright-cucumber/issues"
+  },
+  "homepage": "https://github.com/paul-chiggy/demo-e2e-testing-with-playwright-cucumber#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.1.0",
+    "@cucumber/html-formatter": "^21.13.0",
+    "@cucumber/pretty-formatter": "^2.0.1",
+    "@playwright/test": "1.54.1",
+    "@types/node": "^24.1.0",
+    "ts-node": "^10.9.2"
+  }
+}

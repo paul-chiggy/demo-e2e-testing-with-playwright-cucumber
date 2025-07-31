@@ -1,0 +1,24 @@
+version: '3.2'
+services:
+  test-e2e:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: demo-e2e
+    command: npm run test:cli
+    volumes:
+      - ./support:/app/support
+      - ./tests:/app/tests
+      - ./playwright.config.ts:/app/playwright.config.ts
+      - ./playwright-report:/app/playwright-report
+  test-bdd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: demo-bdd
+    command: npm run test:bdd
+    volumes:
+      - ./support:/app/support
+      - ./tests:/app/tests
+      - ./playwright.config.ts:/app/playwright.config.ts
+      - ./cucumber-report:/app/cucumber-report
