@@ -28,7 +28,7 @@ export class Setup {
     }
 
     public static async create(
-        browserType: BrowserType<{}>,
+        browserType: BrowserType<unknown>,
         headless: boolean = true
     ): Promise<Setup> {
         const browser = await browserType.launch({ headless: headless });

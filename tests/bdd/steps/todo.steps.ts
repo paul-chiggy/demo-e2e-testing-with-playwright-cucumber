@@ -1,11 +1,10 @@
 import { Given, When, Then, Before, After, BeforeAll, AfterAll} from "@cucumber/cucumber";
-import { chromium, Page, Browser, BrowserContext } from "@playwright/test";
+import { chromium, Page, BrowserContext } from "@playwright/test";
 import { pages, todoItemsFilter } from "../../../support/test-data";
 import { Stepper } from "../../../support/stepper";
 import { Asserter } from "../../../support/asserter";
 import { Setup } from "../../../support/setup";
 
-let browser: Browser;
 let page: Page;
 let context: BrowserContext;
 const stepper = new Stepper();
@@ -14,7 +13,6 @@ const setupPromise = Setup.create(chromium);
 
 BeforeAll(async function () {
   const setup = await setupPromise;
-  browser = setup.browser;
   page = setup.page;
   context = setup.context;
 });

@@ -13,4 +13,4 @@ export const todoItemsFilter = [
 export const pages = {
     home: 'https://todomvc.com',
     todoList: '/examples/react/dist',
-}
+};
