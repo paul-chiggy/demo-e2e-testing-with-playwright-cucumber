@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
-import { Asserter } from 'support/asserter';
-import { Stepper } from 'support/stepper';
-import { todoItemsFilter, pages } from 'support/test-data';
+import { Asserter } from '../../support/asserter';
+import { Stepper } from '../../support/stepper';
+import { todoItemsFilter, pages } from '../../support/test-data';
 
 const stepper: Stepper = new Stepper();
 const asserter: Asserter = new Asserter();

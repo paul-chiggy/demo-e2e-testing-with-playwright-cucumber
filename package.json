@@ -4,15 +4,16 @@
   "description": "Demo project for end-to-end testing with Playwright and Cucumber",
   "main": "index.js",
   "scripts": {
-    "test:cli": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:bdd": "cucumber-js test --format @cucumber/pretty-formatter --format html:cucumber-report/report.html --format summary",
+    "test:cli": "playwright test --project chromium",
+    "test:ui": "playwright test --ui --project chromium",
+    "test:bdd": "cucumber-js test",
     "report:open": "playwright show-report",
     "lint": "eslint ./tests ./support",
-    "lint:fix": "eslint ./tests ./support --fix"
+    "lint:fix": "eslint ./tests ./support --fix",
+    "update-all-packages": "npm-check-updates -u && npm install"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=24.0.0"
   },
   "repository": {
     "type": "git",
@@ -30,16 +31,21 @@
   },
   "homepage": "https://github.com/paul-chiggy/demo-e2e-testing-with-playwright-cucumber#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^12.1.0",
-    "@cucumber/html-formatter": "^21.13.0",
-    "@cucumber/pretty-formatter": "^2.0.1",
-    "@eslint/js": "^9.32.0",
-    "@playwright/test": "1.54.1",
-    "@types/node": "^24.1.0",
-    "eslint": "^9.32.0",
-    "globals": "^16.3.0",
-    "jiti": "^2.5.1",
+    "@cucumber/cucumber": "^13.2.1",
+    "@cucumber/html-formatter": "^24.1.1",
+    "@cucumber/pretty-formatter": "^4.0.2",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.1",
+    "esbuild": "^0.28.2",
+    "esbuild-register": "^3.6.0",
+    "eslint": "^10.9.1",
+    "globals": "^17.12.0",
+    "jiti": "^2.7.0",
+    "npm-check-updates": "^23.1.0",
     "ts-node": "^10.9.2",
-    "typescript-eslint": "^8.38.0"
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.69.0"
   }
 }

@@ -9,15 +9,10 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "moduleResolution": "node"
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs"
-    },
-    "transpileOnly": true,
-    "files": true
-  }
+  "transpileOnly": true,
+  "files": true,
+  "compilerHost": true
 }
