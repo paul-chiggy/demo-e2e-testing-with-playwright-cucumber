@@ -1,9 +1,9 @@
 // Simple TypeScript loader that works with newer Node versions
 // This file is used by Cucumber to load .ts files
 
-const Module = require('module');
-const path = require('path');
-const fs = require('fs');
+const Module = require('node:module');
+const path = require('node:path');
+const fs = require('node:fs');
 
 // Map to cache compiled modules
 const cache = new Map();

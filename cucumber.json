@@ -6,7 +6,7 @@
     "publishQuiet": true,
     "dryRun": false,
     "paths": ["tests/bdd/features/"],
-    "require": ["support/*.ts", "tests/bdd/steps/*.ts"],
+    "require": ["support/*.ts", "support/bdd/steps/*.ts"],
     "requireModule": ["esbuild-register"],
     "format": [
       "@cucumber/pretty-formatter",
