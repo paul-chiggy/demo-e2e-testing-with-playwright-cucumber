@@ -15,7 +15,4 @@ COPY tsconfig.json /app/
 # Install dependencies
 RUN npm cache clean --force
 RUN npm install -g playwright
-RUN npm install
-RUN apt-get update && apt-get install -y wget gnupg ca-certificates && \
-   curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-   apt install -y nodejs
+RUN npm install --legacy-peer-deps
