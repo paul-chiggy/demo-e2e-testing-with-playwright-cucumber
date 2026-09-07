@@ -3,18 +3,20 @@ import { TodoPage } from "./todo.po";
 
 export class Actor {
 
-    private readonly todoPage: TodoPage;
+    public readonly todoPage: TodoPage;
 
     constructor(page: Page) {
         this.todoPage = new TodoPage(page);
     }
 
-    public async goTo(): Promise<void> {
-        await this.todoPage.goTo();
-    }
-
-    public async navigateTo(url: string): Promise<void> {
-        await this.todoPage.page.goto(url);
+    public async goTo(): Promise<void>;
+    public async goTo(url: string): Promise<void>;
+    public async goTo(url?: string): Promise<void> {
+        if (url) {
+            await this.todoPage.goTo(url);
+        } else {
+            await this.todoPage.goTo();
+        }
     }
 
     public async shutdown(browser: Browser, page: Page): Promise<void> {

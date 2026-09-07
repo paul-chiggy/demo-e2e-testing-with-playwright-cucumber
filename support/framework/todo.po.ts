@@ -16,6 +16,7 @@ export class TodoPage {
     public readonly filterAll: Locator;
     public readonly filterActive: Locator;
     public readonly filterCompleted: Locator;
+    public readonly url = '/examples/react/dist';
 
     constructor(page: Page) {
         this.page = page;
@@ -36,8 +37,10 @@ export class TodoPage {
     /**
      * Navigate to the todo list page
      */
-    public async goTo(): Promise<void> {
-        await this.page.goto('/examples/react/dist');
+    public async goTo(): Promise<void>;
+    public async goTo(url: string): Promise<void>;
+    public async goTo(url: string = this.url): Promise<void> {
+        await this.page.goto(url);
         await this.page.waitForLoadState('domcontentloaded');
     }
 

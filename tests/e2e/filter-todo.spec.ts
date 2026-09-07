@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { Asserter } from '../../support/framework/asserter';
 import { Actor } from '../../support/framework/actor';
-import { todoItemsFilter } from '../../support/test-data';
+import { todoItems } from '../../support/test-data';
 
 let actor: Actor;
 let asserter: Asserter;
@@ -14,11 +14,11 @@ test.describe('Filter todos', () => {
 
     // Arrange
     await actor.goTo();
-    for(const item of todoItemsFilter) {
+    for(const item of todoItems) {
       await actor.addTodoItem(item);
     }
-    await asserter.verifyActiveTodoCount(todoItemsFilter.length);
-    await actor.toggleTodoItemCompletion(todoItemsFilter[0]);
+    await asserter.verifyActiveTodoCount(todoItems.length);
+    await actor.toggleTodoItemCompletion(todoItems[0]);
   });
 
   test.describe('Filter completed todos', () => {
@@ -28,7 +28,7 @@ test.describe('Filter todos', () => {
       await actor.filterCompletedTodos();
 
       // Assert
-      await asserter.verifyCompletedTodoItem(todoItemsFilter[0]);
+      await asserter.verifyCompletedTodoItem(todoItems[0]);
       await asserter.verifyActiveTodoCount(3);
       await asserter.verifyTotalTodoCount(1);
     });
@@ -42,9 +42,9 @@ test.describe('Filter todos', () => {
       await actor.filterActiveTodos();
 
       // Assert
-      await asserter.verifyActiveTodoItem(todoItemsFilter[1]);
-      await asserter.verifyActiveTodoItem(todoItemsFilter[2]);
-      await asserter.verifyActiveTodoItem(todoItemsFilter[3]);
+      await asserter.verifyActiveTodoItem(todoItems[1]);
+      await asserter.verifyActiveTodoItem(todoItems[2]);
+      await asserter.verifyActiveTodoItem(todoItems[3]);
       await asserter.verifyActiveTodoCount(3);
       await asserter.verifyTotalTodoCount(3);
     });
@@ -63,10 +63,10 @@ test.describe('Filter todos', () => {
       await actor.filterAllTodos();
 
       // Assert
-      await asserter.verifyCompletedTodoItem(todoItemsFilter[0]);
-      await asserter.verifyActiveTodoItem(todoItemsFilter[1]);
-      await asserter.verifyActiveTodoItem(todoItemsFilter[2]);
-      await asserter.verifyActiveTodoItem(todoItemsFilter[3]);
+      await asserter.verifyCompletedTodoItem(todoItems[0]);
+      await asserter.verifyActiveTodoItem(todoItems[1]);
+      await asserter.verifyActiveTodoItem(todoItems[2]);
+      await asserter.verifyActiveTodoItem(todoItems[3]);
       await asserter.verifyActiveTodoCount(3);
       await asserter.verifyTotalTodoCount(4);
     });
